@@ -1,0 +1,8 @@
+# Browsers that we support
+> 1%
+last 2 versions
+not ie <= 8
+
+last 10 Chrome versions
+last 5 Firefox versions
+Safari >= 6

@@ -1,0 +1,101 @@
+{
+  "name": "sako-tpl-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --color --progress --config build/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.build.js",
+    "analyzer": "cross-env NODE_ENV=production webpack --config build/webpack.config.analyzer.js",
+    "precommit": "lint-staged",
+    "openServer": "http-server dist/ -o -g -p 8008",
+    "server": "npm-run-all build openServer",
+    "prePushGit": "npm run eslint && npm run stylelint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "samhong <m118969136460@163.com> (https://github.com/HongYangHT)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.2.1",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.4",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "portfinder": "^1.0.23",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.3.1",
+    "speed-measure-webpack-plugin": "^1.3.1",
+    "sw-precache-webpack-plugin": "^0.11.5",
+    "terser-webpack-plugin": "^1.4.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
+    "vue-style-loader": "^4.1.2",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint": "^5.16.0",
+    "cssnano": "^4.1.10",
+    "autoprefixer": "^9.5.1",
+    "npm-run-all": "^4.1.5",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "stylelint": "^10.0.1",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.9.2",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "postcss": "^7.0.17",
+    "node-sass": "^4.12.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "image-webpack-loader": "^4.6.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run prePushGit"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "npm run eslint",
+      "npm run stylelint",
+      "git add"
+    ]
+  }
+}
